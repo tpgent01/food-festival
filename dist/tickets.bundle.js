@@ -9,23 +9,13 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./assets/js/domMethods.js":
-/*!*********************************!*\
-  !*** ./assets/js/domMethods.js ***!
-  \*********************************/
-/***/ ((module) => {
-
-eval("\n\n\n\n\n\n\nmodule.exports = createEl;\n\n//# sourceURL=webpack://food-festival/./assets/js/domMethods.js?");
-
-/***/ }),
-
 /***/ "./assets/js/tickets.js":
 /*!******************************!*\
   !*** ./assets/js/tickets.js ***!
   \******************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("__webpack_require__(/*! bootstrap */ \"./node_modules/bootstrap/dist/js/bootstrap.js\");\nconst createEl = __webpack_require__(/*! ./domMethods */ \"./assets/js/domMethods.js\");\n\nif (window.location.href.indexOf(\"tickets\") > -1) {\n\n    const purchaseBtn = document.getElementById(\"purchaseBtn\");\n    const purchaseEmail = document.getElementById(\"purchaseEmail\");\n    const modalEl = document.querySelector(\".modal-content\");\n    const modalBodyEl = document.querySelector(\".modal-body\");\n    const modalFooterEl = document.querySelector(\".modal-footer\");\n\n\n    function purchaseTicket () {\n\n      modalEl.removeChild(modalBodyEl)\n      modalEl.removeChild(modalFooterEl)\n\n      modalEl.append(createEl(\"div\", {class: \"modal-body\"},\n        createEl(\"h5\", {class: \"modal-title\"}, \n        `Thanks for requesting a ticket purchase! We will send an email to ${purchaseEmail.value} to complete the order form!`\n        ),\n      ))\n      \n    }\n    purchaseBtn.addEventListener(\"click\", purchaseTicket);\n}\n\n//# sourceURL=webpack://food-festival/./assets/js/tickets.js?");
+eval("__webpack_require__(/*! bootstrap */ \"./node_modules/bootstrap/dist/js/bootstrap.js\");\n\nif (window.location.href.indexOf(\"tickets\") > -1) {\n\n  const purchaseBtn = document.getElementById(\"purchaseBtn\");\n  const purchaseEmail = document.getElementById(\"purchaseEmail\");\n  const modalEl = document.querySelector(\".modal-content\");\n  const modalBodyEl = document.querySelector(\".modal-body\");\n  const modalFooterEl = document.querySelector(\".modal-footer\");\n\n\n  function purchaseTicket () {\n\n    modalEl.removeChild(modalBodyEl)\n    modalEl.removeChild(modalFooterEl)\n\n    modalEl.append(createEl(\"div\", {class: \"modal-body\"},\n      createEl(\"h5\", {class: \"modal-title\"}, \n      `Thanks for requesting a ticket purchase! We will send an email to ${purchaseEmail.value} to complete the order form!`\n      ),\n    ))\n    \n  }\n  purchaseBtn.addEventListener(\"click\", purchaseTicket);\n}\n\n//# sourceURL=webpack://food-festival/./assets/js/tickets.js?");
 
 /***/ }),
 

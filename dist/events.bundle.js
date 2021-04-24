@@ -15,7 +15,7 @@
   \*********************************/
 /***/ ((module) => {
 
-eval("\n\n\n\n\n\n\nmodule.exports = createEl;\n\n//# sourceURL=webpack://food-festival/./assets/js/domMethods.js?");
+eval("function createEl(htmlString, attrs, ...children) {\n    if (typeof htmlString !== \"string\") {\n      throw Error(\"Argument 'htmlString' is required and must be a string\");\n    }\n  \n    const el = document.createElement(htmlString);\n  \n    if (typeof attrs === \"object\") {\n      for (let key in attrs) {\n        if (key.substring(0, 2) === \"on\") {\n          el.addEventListener(key.substring(2).toLowerCase(), attrs[key]);\n        } else if (key === \"style\") {\n          for (let rule in attrs[key]) {\n            el.style[rule] = attrs[key][rule];\n          }\n        } else {\n          el.setAttribute(key, attrs[key]);\n        }\n      }\n    }\n  \n    children.forEach(function(child) {\n      let node;\n  \n      if (child.constructor.name.includes(\"Element\")) {\n        node = child;\n      } else {\n        node = document.createTextNode(child);\n      }\n  \n      el.appendChild(node);\n    });\n  \n    return el;\n  }\n  \n  module.exports = createEl;\n\n//# sourceURL=webpack://food-festival/./assets/js/domMethods.js?");
 
 /***/ }),
 
@@ -25,17 +25,7 @@ eval("\n\n\n\n\n\n\nmodule.exports = createEl;\n\n//# sourceURL=webpack://food-f
   \*****************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("const createLoremIpsum = __webpack_require__(/*! ./helpers */ \"./assets/js/helpers.js\");\n__webpack_require__(/*! bootstrap */ \"./node_modules/bootstrap/dist/js/bootstrap.js\");\nconst createEl = __webpack_require__(/*! ./domMethods */ \"./assets/js/domMethods.js\");\n\nif (window.location.href.indexOf(\"event\") > -1) {\n    const currentEvent = JSON.parse(localStorage.getItem(\"currentEvent\")) || {\n        title: \"Title Placeholder\",\n        subtitle: \"\",\n        description: \"\"\n    };\n\n    const pageEl = document.querySelector(\"#page\");\n    \n    const containerEl = createEl(\"div\", {class: \"container\"},\n      createEl(\"div\", {class: \"card mb-3\"}, \n        createEl(\"img\", {class: \"card-img-top\", style: \"width: 5px\", src: currentEvent.image || \"https://via.placeholder.com/350x150\"}),\n        createEl(\"div\", {class: \"card-body\"}, \n          createEl(\"h1\", {class: \"card-title\"}, currentEvent.title || \"\"),\n          createEl(\"h2\", {class: \"text-muted\"}, currentEvent.subtitle || \"\"),\n          createEl(\"p\", {class: \"card-text mt-3\"}, currentEvent.description || createLoremIpsum(100)),\n          createEl(\"a\", {class: \"btn btn-primary\", href: \"tickets.html\"}, \"Buy Tickets\")\n        )\n      ),\n      \n    )\n    pageEl.appendChild(containerEl)\n}\n\n//# sourceURL=webpack://food-festival/./assets/js/events.js?");
-
-/***/ }),
-
-/***/ "./assets/js/helpers.js":
-/*!******************************!*\
-  !*** ./assets/js/helpers.js ***!
-  \******************************/
-/***/ ((module) => {
-
-eval("module.exports = {\n    dateConverter,\n    createLoremIpsum\n}\n\n//# sourceURL=webpack://food-festival/./assets/js/helpers.js?");
+eval("__webpack_require__(/*! bootstrap */ \"./node_modules/bootstrap/dist/js/bootstrap.js\");\nconst createEl = __webpack_require__(/*! ./domMethods */ \"./assets/js/domMethods.js\");\n\nif (window.location.href.indexOf(\"event\") > -1) {\n  const currentEvent = JSON.parse(localStorage.getItem(\"currentEvent\")) || {\n      title: \"Title Placeholder\",\n      subtitle: \"\",\n      description: \"\"\n  };\n\n  const pageEl = document.querySelector(\"#page\");\n  \n  const containerEl = createEl(\"div\", {class: \"container\"},\n    createEl(\"div\", {class: \"card mb-3\"}, \n      createEl(\"img\", {class: \"card-img-top\", style: \"width: 5px\", src: currentEvent.image || \"https://via.placeholder.com/350x150\"}),\n      createEl(\"div\", {class: \"card-body\"}, \n        createEl(\"h1\", {class: \"card-title\"}, currentEvent.title || \"\"),\n        createEl(\"h2\", {class: \"text-muted\"}, currentEvent.subtitle || \"\"),\n        createEl(\"p\", {class: \"card-text mt-3\"}, currentEvent.description || createLoremIpsum(100)),\n        createEl(\"a\", {class: \"btn btn-primary\", href: \"tickets.html\"}, \"Buy Tickets\")\n      )\n    ),\n    \n  )\n  pageEl.appendChild(containerEl)\n}\n\n//# sourceURL=webpack://food-festival/./assets/js/events.js?");
 
 /***/ }),
 
